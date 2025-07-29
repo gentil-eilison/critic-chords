@@ -1,10 +1,11 @@
 import PrimaryButton from "@/components/PrimaryButton";
 import SecondaryButton from "@/components/SecondaryButton";
 import { Badge } from "@/components/ui/badge";
+import FloatingPanels from "./FloatingPanels";
 
 export default function HeroSection() {
     return (
-        <section className="border-2 border-red-500 flex flex-col items-center p-8 gap-5">
+        <section className="border-2 border-red-500 flex flex-col items-center p-8 gap-5 relative">
             <Badge 
                 className="border-green-500 text-green-500 bg-green-500/10" 
                 variant="outline">Share Your Musical Voice
@@ -22,6 +23,7 @@ export default function HeroSection() {
                 <PrimaryButton>Start Reviewing</PrimaryButton>
                 <SecondaryButton>Explore Reviews</SecondaryButton>
             </div>
+            <FloatingPanels />
         </section>
     );
 }
