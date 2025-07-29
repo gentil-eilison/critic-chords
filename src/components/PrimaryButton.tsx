@@ -4,7 +4,7 @@ import { Button } from "./ui/button";
 export default function PrimaryButton({ children }: ButtonProps) {
     return (
         <Button 
-            className="text-black bg-green-500 hover:bg-green-600 hover:cursor-pointer"
+            className="text-black bg-green-500 hover:bg-green-600 hover:cursor-pointer transition-colors"
         >
             { children }
         </Button>
