@@ -1,6 +1,5 @@
 import Logo from "@/components/Logo";
 import PrimaryButton from "@/components/PrimaryButton";
-import Link from "next/link";
 
 export default function HomeHeader() {
     return (
@@ -11,9 +10,11 @@ export default function HomeHeader() {
                 <a className="hover:text-green-500 transition-colors" href="#about">About</a>
                 <a className="hover:text-green-500 transition-colors" href="#contact">Contact</a>
             </nav>
-            <Link href="/sign-in">
-                <PrimaryButton>Sign In/Up</PrimaryButton>
-            </Link>
+            <div className="flex gap-5">
+                <a href="/auth/login">
+                    <PrimaryButton>Sign In/Up</PrimaryButton>
+                </a>
+            </div>
         </header>
     );
 }
