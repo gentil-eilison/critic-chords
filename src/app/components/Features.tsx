@@ -5,11 +5,11 @@ import { MessageSquare, Music, Search, Star, TrendingUp, Users } from "lucide-re
 
 export default function Features() {
     return (
-        <section className="border-2 border-blue-700 bg-gray-900/50 p-8">
+        <section className="bg-gray-900/50 p-8">
             <TypographyH1 extraClasses="text-center">
                 Why Choose&nbsp;<span className="text-green-500">Critic Chord?</span>
             </TypographyH1>
-            <TypographyH2 extraClasses="text-center mt-4">
+            <TypographyH2 extraClasses="text-center mt-4 text-gray-300">
                 Experience music criticism like never before with out comprehensive platform
             </TypographyH2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">

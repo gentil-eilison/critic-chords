@@ -7,7 +7,7 @@ import TypographyH2 from "@/components/typography/TypographyH2";
 
 export default function HeroSection() {
     return (
-        <section className="border-2 border-red-500 flex flex-col items-center p-8 gap-5 relative">
+        <section className="flex flex-col items-center p-8 gap-5 relative">
             <Badge 
                 className="border-green-500 text-green-500 bg-green-500/10" 
                 variant="outline">Share Your Musical Voice
