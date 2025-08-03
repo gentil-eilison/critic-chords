@@ -2,40 +2,14 @@
 
 import PrimaryButton from "@/components/PrimaryButton";
 import { 
-    Card, 
     CardContent, 
     CardFooter, 
     CardHeader 
 } from "@/components/ui/card";
 import { Star } from "lucide-react";
-import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import Image from "next/image";
-
-type Album = {
-    id: number;
-    title: string;
-    artistId: number;
-    coverImage: string | StaticImport;
-}
-
-type Artist = {
-    id: number;
-    firstName: string;
-    lastName: string;
-}
-
-type Review = {
-    id: number;
-    rating: number;
-    commentary: string;
-    userId: number;
-    albumId: number;
-}
-
-type User = {
-    id: number;
-    username: string;
-}
+import HomeCard from "./HomeCard";
+import { Album, Artist, Review, User } from "@/types/Application";
 
 interface ReviewCardProps {
     album: Album;
@@ -48,7 +22,7 @@ export default function ReviewCard(
     { album, artist, review, user }: ReviewCardProps
 ) {
     return (
-        <Card className="bg-gray-800/50 border-gray-700 hover:border-green-500 transition-colors">
+        <HomeCard>
             <CardHeader className="flex">
                 <figure>
                     <Image
@@ -72,6 +46,6 @@ export default function ReviewCard(
                 <span className="text-gray-400">@{ user.username }</span>
                 <PrimaryButton>Read More</PrimaryButton>
             </CardFooter>
-        </Card>
+        </HomeCard>
     );
 }

@@ -1,13 +1,14 @@
 import ReviewCard from "./ReviewCard";
-import coverImage from "../../../public/ps5.webp";
+import coverImage from "../../../public/tos-angra.jpg";
 import TypographyH1 from "@/components/typography/TypographyH1";
 import TypographyH2 from "@/components/typography/TypographyH2";
 
-const album = {
+export const album = {
     id: 1,
     title: "Temple of Shadows",
     artistId: 1,
-    coverImage: coverImage
+    coverImage: coverImage,
+    avgRating: 4.5
 }
 
 const artist = {

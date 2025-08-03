@@ -1,15 +1,23 @@
 import Logo from "@/components/Logo";
 import { 
-    Sheet, 
+    Sheet,
     SheetContent, 
     SheetHeader, 
     SheetTitle, 
     SheetTrigger 
 } from "@/components/ui/sheet";
+import { auth0 } from "@/lib/auth0";
 import { Menu } from "lucide-react";
-import HomeHeader from "./HomeHeader";
+import { redirect } from "next/navigation";
+import Header from "./components/Header";
 
-export default function HomeSideHeader() {
+export default async function SideHeader() {
+    const session = await auth0.getSession();
+
+    if (!session) {
+        redirect("/")
+    }
+
     return (
         <Sheet>
             <SheetTrigger className="w-full flex justify-between items-center p-3">
@@ -20,7 +28,7 @@ export default function HomeSideHeader() {
                 <SheetHeader>
                     <SheetTitle></SheetTitle>
                 </SheetHeader>
-                <HomeHeader />
+                <Header />
             </SheetContent>
         </Sheet>
     );

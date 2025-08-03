@@ -1,11 +1,19 @@
+import { auth0 } from "@/lib/auth0";
 import FeaturedReviews from "./components/FeaturedReviews";
 import Features from "./components/Features";
 import HeroSection from "./components/HeroSection";
 import HomeHeader from "./components/HomeHeader";
 import HomeSideHeader from "./components/HomeSideHeader";
 import HowItWorks from "./components/HowItWorks";
+import { redirect } from "next/navigation";
 
-export default function Home() {
+export default async function Home() {
+  const session = await auth0.getSession();
+
+  if (session) {
+    redirect("/home")
+  }
+
   return (
     <main className="flex flex-col grow-1">
       <div className="hidden md:block">
