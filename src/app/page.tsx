@@ -11,7 +11,7 @@ export default async function Home() {
   const session = await auth0.getSession();
 
   if (session) {
-    redirect("/home")
+    redirect("/app/home")
   }
 
   return (

@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import Header from "./components/Header";
+import Header from "./Header";
 import SideHeader from "./SideHeader";
 
 export default function DashboardLayout(

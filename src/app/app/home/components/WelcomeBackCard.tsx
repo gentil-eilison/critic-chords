@@ -22,7 +22,7 @@ export default function WelcomeBackCard(
                     Ready to discover some new music or share your latest thoughts?
                 </p>
                 <div>
-                    <Link className="flex flex-col md:flex-row gap-8" href="/discover">
+                    <Link className="flex flex-col md:flex-row gap-8" href="/app/discover">
                         <PrimaryButton>Browse Library</PrimaryButton>
                     </Link>
                 </div>

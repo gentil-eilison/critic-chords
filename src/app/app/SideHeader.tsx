@@ -9,7 +9,7 @@ import {
 import { auth0 } from "@/lib/auth0";
 import { Menu } from "lucide-react";
 import { redirect } from "next/navigation";
-import Header from "./components/Header";
+import Header from "./Header";
 
 export default async function SideHeader() {
     const session = await auth0.getSession();
