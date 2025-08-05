@@ -1,6 +1,7 @@
 import TypographyH1 from "@/components/typography/TypographyH1";
 import TypographyH2 from "@/components/typography/TypographyH2";
 import SearchFilterCard from "./components/search-form/SearchFilterCard";
+import Results from "./components/search-results/Results";
 
 export default function Discover() {
     return (
@@ -14,6 +15,7 @@ export default function Discover() {
                 </TypographyH2>
             </header>
             <SearchFilterCard />
+            <Results />
         </main>
     );
 }
