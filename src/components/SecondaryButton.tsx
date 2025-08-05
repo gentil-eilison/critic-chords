@@ -1,9 +1,9 @@
 import { ButtonProps } from "@/types/Button";
 import { Button } from "./ui/button";
 
-export default function SecondaryButton({ children }: ButtonProps) {
+export default function SecondaryButton({ children, ...props }: ButtonProps) {
     return (
-        <Button className="border-1 border-green-500 text-green-500 bg-black hover:bg-green-500 hover:text-black hover:cursor-pointer transition-colors">
+        <Button {...props} className="border-1 border-green-500 text-green-500 bg-black hover:bg-green-500 hover:text-black hover:cursor-pointer transition-colors">
             { children }
         </Button>
     );
