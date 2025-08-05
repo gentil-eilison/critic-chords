@@ -101,7 +101,7 @@ export default function SearchFilterForm() {
                             <FormControl>
                                 <Input
                                     aria-label="Name"
-                                    placeholder="Search for albums, artists, or songs..."
+                                    placeholder="Search for albums or artists..."
                                     className="pl-10"
                                     {...field}
                                 />
