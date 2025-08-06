@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import Header from "./Header";
 import SideHeader from "./SideHeader";
+import "@smastrom/react-rating/style.css";
 
 export default function DashboardLayout(
     { children }: { children: ReactNode }
