@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { ReactQueryClientProvider } from "@/components/ReactQueryClientProvider";
 
 const interSans = Inter({ subsets: ["latin"] });
 
@@ -16,11 +17,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${interSans.className} antialiased dark flex flex-col items-stretch min-h-screen`}
-      >
-        {children}
-      </body>
+      <ReactQueryClientProvider>
+        <body
+          className={`${interSans.className} antialiased dark flex flex-col items-stretch min-h-screen`}
+        >
+          {children}
+        </body>
+      </ReactQueryClientProvider>
     </html>
   );
 }

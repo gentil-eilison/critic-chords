@@ -3,26 +3,32 @@ import PrimaryButton from "@/components/PrimaryButton";
 import { Card, CardContent } from "@/components/ui/card";
 import { Calendar, Plus, Star, User } from "lucide-react";
 
-import { album } from "@/app/components/FeaturedReviews";
 import Link from "next/link";
+import { Album } from "@/types/Application";
 
-export default function ResultCard() {
+interface ResultCardProps {
+  album: Album;
+}
+
+export default function ResultCard({ album }: ResultCardProps) {
   return (
     <Card className="bg-gray-900/50 border-gray-800 hover:border-gray-700 transition-all duration-200 hover:scale-101">
       <CardContent className="flex flex-col gap-1">
         <FallbackImage
           className="rounded mx-auto"
-          src={album.coverImage}
+          width={400}
+          height={400}
+          src={album.cover_art}
           alt="Cover"
         />
-        <p className="font-bold">Temple of Shadows</p>
+        <p className="font-bold">{album.title}</p>
         <p className="flex items-center gap-2 text-gray-400">
           <User size={16} />
-          ANGRA
+          {album.artist}
         </p>
         <p className="text-gray-400 flex items-center gap-2">
           <Calendar size={16} />
-          2004 • Power Metal
+          {album.release_year} • {album.genre}
         </p>
         <p className="flex items-center gap-1">
           <Star
@@ -33,7 +39,7 @@ export default function ResultCard() {
           4.2
           <span className="text-gray-400">(22)</span>
         </p>
-        <Link href="album/1">
+        <Link href={`album/${album.id}`}>
           <PrimaryButton extraClasses="font-bold w-full">
             <Plus />
             Write Review
