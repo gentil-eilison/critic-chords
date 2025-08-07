@@ -8,6 +8,8 @@ export type Album = {
   artist: string;
   cover_art: string;
   genre: string;
+  about: string;
+  reviews?: Review[];
 };
 
 export type Genre = {
@@ -17,16 +19,14 @@ export type Genre = {
 
 export type Artist = {
   id: number;
-  firstName: string;
-  lastName: string;
+  name: string;
 };
 
 export type Review = {
   id: number;
   rating: number;
   commentary: string;
-  userId: number;
-  albumId: number;
+  user: string;
 };
 
 export type User = {

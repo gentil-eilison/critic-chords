@@ -5,3 +5,8 @@ export async function getAlbums(): Promise<Album[]> {
   const response = await criticChordClient.get("/albums/");
   return response.data;
 }
+
+export async function getAlbum(id: number): Promise<Album> {
+  const response = await criticChordClient.get(`/albums/${id}`);
+  return response.data;
+}

@@ -28,8 +28,8 @@ export default async function Header() {
             <Avatar>
               <AvatarImage src={session.user.picture} />
               <AvatarFallback>
-                {session.user.given_name}
-                {session.user.family_name}
+                {session.user.given_name?.at(0)}
+                {session.user.family_name?.at(0)}
               </AvatarFallback>
             </Avatar>
           </Link>
