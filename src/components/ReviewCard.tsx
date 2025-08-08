@@ -1,9 +1,10 @@
 import { Avatar, AvatarFallback } from "./ui/avatar";
-import { Card, CardContent, CardFooter, CardHeader } from "./ui/card";
+import { CardContent, CardFooter, CardHeader } from "./ui/card";
 
 import ReadOnlyRating from "./ReadOnlyRating";
 import { Heart } from "lucide-react";
 import { Review } from "@/types/Application";
+import ContainerCard from "./ContainerCard";
 
 interface ReviewCardProps {
   review: Review;
@@ -11,7 +12,7 @@ interface ReviewCardProps {
 
 export default function ReviewCard({ review }: ReviewCardProps) {
   return (
-    <Card className="bg-gray-900/50 border-gray-800">
+    <ContainerCard variant="gray">
       <CardHeader>
         <header className="flex justify-between items-center gap-3">
           <div className="flex gap-2">
@@ -23,7 +24,7 @@ export default function ReviewCard({ review }: ReviewCardProps) {
             </Avatar>
             <div className="flex flex-col items-start">
               <p className="font-bold">@{review.user}</p>
-              <p className="text-gray-400">2 days ago</p>
+              <p className="text-gray-400">{review.days_since} days ago</p>
             </div>
           </div>
           <span className="flex items-center self-start gap-1">
@@ -43,6 +44,6 @@ export default function ReviewCard({ review }: ReviewCardProps) {
         />{" "}
         0
       </CardFooter>
-    </Card>
+    </ContainerCard>
   );
 }

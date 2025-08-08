@@ -27,9 +27,16 @@ export type Review = {
   rating: number;
   commentary: string;
   user: string;
+  days_since: number;
 };
 
 export type User = {
   id: number;
   username: string;
+};
+
+export type UserStats = {
+  reviews_liked: number;
+  reviews_written: number;
+  albums_rated: number;
 };

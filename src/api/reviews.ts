@@ -1,4 +1,4 @@
-import { Review } from "@/types/Application";
+import { Review, UserStats } from "@/types/Application";
 import criticChordClient from "./client";
 
 export interface CreateReviewData {
@@ -20,5 +20,10 @@ export async function createReview(
 
 export async function getAlbumReviews(albumId: number): Promise<Review[]> {
   const response = await criticChordClient.get(`/albums/${albumId}/reviews/`);
+  return response.data;
+}
+
+export async function getUserStats(email: string): Promise<UserStats> {
+  const response = await criticChordClient.get(`/reviews/${email}/stats/`);
   return response.data;
 }
