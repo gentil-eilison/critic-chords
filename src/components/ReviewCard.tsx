@@ -5,12 +5,15 @@ import ReadOnlyRating from "./ReadOnlyRating";
 import { Heart } from "lucide-react";
 import { Review } from "@/types/Application";
 import ContainerCard from "./ContainerCard";
+import { useUser } from "@auth0/nextjs-auth0";
 
 interface ReviewCardProps {
   review: Review;
 }
 
 export default function ReviewCard({ review }: ReviewCardProps) {
+  const { user } = useUser();
+
   return (
     <ContainerCard variant="gray">
       <CardHeader>
@@ -37,12 +40,18 @@ export default function ReviewCard({ review }: ReviewCardProps) {
         <p className="text-gray-300 text-justify">"{review.commentary}"</p>
       </CardContent>
       <CardFooter className="flex items-center gap-3 text-sm text-gray-400">
-        <Heart
-          className="hover:text-red-400 hover:cursor-pointer"
-          fill=""
-          size={18}
-        />{" "}
-        0
+        {user && review.user === user.email ? (
+          <></>
+        ) : (
+          <>
+            <Heart
+              className="hover:text-red-400 hover:cursor-pointer"
+              fill=""
+              size={18}
+            />{" "}
+            0
+          </>
+        )}
       </CardFooter>
     </ContainerCard>
   );
