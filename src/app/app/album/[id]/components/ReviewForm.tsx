@@ -13,7 +13,7 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 import { useAlbum } from "@/context/AlbumContext";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useUser } from "@auth0/nextjs-auth0";
 import z from "zod";
@@ -29,7 +29,11 @@ const formSchema = z.object({
     .optional(),
 });
 
-export default function ReviewForm() {
+interface ReviewFormProps {
+  setHasRated: Dispatch<SetStateAction<boolean>>;
+}
+
+export default function ReviewForm({ setHasRated }: ReviewFormProps) {
   const { album } = useAlbum();
   const [rating, setRating] = useState<number>(0);
   const { user } = useUser();
@@ -45,6 +49,7 @@ export default function ReviewForm() {
     }) => createReview(albumId, reviewData),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["reviewsList"] });
+      setHasRated(true);
     },
   });
 

@@ -9,7 +9,7 @@ export type Album = {
   cover_art: string;
   genre: string;
   about: string;
-  reviews?: Review[];
+  reviews_count: number;
 };
 
 export type Genre = {

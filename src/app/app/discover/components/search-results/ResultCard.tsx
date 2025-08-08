@@ -37,7 +37,7 @@ export default function ResultCard({ album }: ResultCardProps) {
             fill={"var(--color-green-500)"}
           />
           4.2
-          <span className="text-gray-400">(22)</span>
+          <span className="text-gray-400">({album.reviews_count})</span>
         </p>
         <Link href={`album/${album.id}`}>
           <PrimaryButton extraClasses="font-bold w-full">

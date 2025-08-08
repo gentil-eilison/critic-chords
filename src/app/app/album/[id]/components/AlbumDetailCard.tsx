@@ -26,9 +26,7 @@ export default function AlbumDetailCard() {
         <span className="flex items-center gap-3">
           <ReadOnlyRating maxWidth={120} rating={4} />
           <span className="font-bold">4.2</span>
-          <span className="text-gray-400">
-            ({album.reviews?.length} reviews)
-          </span>
+          <span className="text-gray-400">({album.reviews_count} reviews)</span>
         </span>
         <div className="text-sm">
           <p className="text-gray-400 flex justify-between items-center">
