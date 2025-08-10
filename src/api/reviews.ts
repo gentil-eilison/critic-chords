@@ -32,3 +32,13 @@ export async function getLatestReviews(): Promise<Review[]> {
   const response = await criticChordClient.get("/reviews/latest/");
   return response.data;
 }
+
+export async function likeReview(
+  reviewId: number,
+  user: string
+): Promise<void> {
+  const response = await criticChordClient.post(`/reviews/${reviewId}/like/`, {
+    user: user,
+  });
+  return response.data;
+}

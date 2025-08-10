@@ -1,3 +1,5 @@
+"use client";
+
 import { Avatar, AvatarFallback } from "./ui/avatar";
 import { CardContent, CardFooter, CardHeader } from "./ui/card";
 
@@ -6,6 +8,8 @@ import { Heart } from "lucide-react";
 import { Review } from "@/types/Application";
 import ContainerCard from "./ContainerCard";
 import { useUser } from "@auth0/nextjs-auth0";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { likeReview } from "@/api/reviews";
 
 interface ReviewCardProps {
   review: Review;
@@ -14,6 +18,21 @@ interface ReviewCardProps {
 
 export default function ReviewCard({ review, showLike }: ReviewCardProps) {
   const { user } = useUser();
+  const queryClient = useQueryClient();
+  const mutation = useMutation({
+    mutationFn: ({ reviewId, user }: { reviewId: number; user: string }) =>
+      likeReview(reviewId, user),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["reviewsList"] });
+    },
+  });
+  const likeDisabled = review.likes.find((like) => like.user === user?.email);
+
+  function handleLikeClickHandler() {
+    if (user && user.email) {
+      mutation.mutate({ reviewId: review.id, user: user.email });
+    }
+  }
 
   return (
     <ContainerCard variant="gray">
@@ -53,11 +72,16 @@ export default function ReviewCard({ review, showLike }: ReviewCardProps) {
         ) : (
           <>
             <Heart
-              className="hover:text-red-400 hover:cursor-pointer"
-              fill=""
+              className={
+                likeDisabled
+                  ? "text-red-400"
+                  : "hover:text-red-400 hover:cursor-pointer"
+              }
+              fill={likeDisabled ? "var(--color-red-400)" : ""}
               size={18}
+              onClick={likeDisabled ? undefined : handleLikeClickHandler}
             />{" "}
-            0
+            {review.likes.length}
           </>
         )}
       </CardFooter>

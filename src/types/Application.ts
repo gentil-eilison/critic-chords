@@ -23,12 +23,20 @@ export type Artist = {
   name: string;
 };
 
+export type Like = {
+  id: number;
+  created_at: string;
+  user: string;
+  review: number;
+};
+
 export type Review = {
   id: number;
   rating: number;
   commentary: string;
   user: string;
   days_since: number;
+  likes: Like[];
 };
 
 export type User = {
