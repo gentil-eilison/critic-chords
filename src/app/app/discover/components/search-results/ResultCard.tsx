@@ -36,7 +36,7 @@ export default function ResultCard({ album }: ResultCardProps) {
             color={"var(--color-green-500)"}
             fill={"var(--color-green-500)"}
           />
-          4.2
+          {album.overall_rating}
           <span className="text-gray-400">({album.reviews_count})</span>
         </p>
         <Link href={`album/${album.id}`}>

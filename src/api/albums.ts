@@ -10,3 +10,8 @@ export async function getAlbum(id: number): Promise<Album> {
   const response = await criticChordClient.get(`/albums/${id}`);
   return response.data;
 }
+
+export async function getTrendingAlbums(): Promise<Album[]> {
+  const response = await criticChordClient.get("/albums/trending/");
+  return response.data;
+}

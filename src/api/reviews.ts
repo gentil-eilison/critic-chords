@@ -27,3 +27,8 @@ export async function getUserStats(email: string): Promise<UserStats> {
   const response = await criticChordClient.get(`/reviews/${email}/stats/`);
   return response.data;
 }
+
+export async function getLatestReviews(): Promise<Review[]> {
+  const response = await criticChordClient.get("/reviews/latest/");
+  return response.data;
+}

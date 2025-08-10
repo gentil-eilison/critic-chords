@@ -1,24 +1,29 @@
+"use client";
+
 import { TrendingUp } from "lucide-react";
 import SectionCard from "../SectionCard";
 import TrendingAlbumItem from "./TrendingAlbumItem";
-import { album } from "@/app/components/FeaturedReviews";
-
+import { useQuery } from "@tanstack/react-query";
+import { getTrendingAlbums } from "@/api/albums";
 
 export default function TrendingAlbumsCard() {
-    return (
-        <SectionCard 
-            title="Trending This Week"
-            icon={
-                <TrendingUp size={32} color={"var(--color-green-500)"} />
-            }
-        >
-            <ul className="list-none">
-                <TrendingAlbumItem album={album} artist="Angra" />
-                <TrendingAlbumItem album={album} artist="Disturbed" />
-                <TrendingAlbumItem album={album} artist="Linkin Park" />
-                <TrendingAlbumItem album={album} artist="Avenged Sevenfold" />
-                <TrendingAlbumItem album={album} artist="Edu Falaschi" />
-            </ul>
-        </SectionCard>
-    );
+  const { data } = useQuery({
+    queryKey: ["trendingAlbums"],
+    queryFn: getTrendingAlbums,
+  });
+
+  return (
+    <SectionCard
+      title="Trending This Week"
+      icon={<TrendingUp size={32} color={"var(--color-green-500)"} />}
+    >
+      {data && (
+        <ul className="list-none">
+          {data.map((album) => (
+            <TrendingAlbumItem key={album.id} album={album} />
+          ))}
+        </ul>
+      )}
+    </SectionCard>
+  );
 }

@@ -12,7 +12,7 @@ export default function ReviewsList({ reviews }: ReviewsListProps) {
       <TypographyH1>Reviews ({reviews.length})</TypographyH1>
       <div className="flex flex-col gap-5 mt-5">
         {reviews.map((review) => (
-          <ReviewCard review={review} key={review.id} />
+          <ReviewCard review={review} key={review.id} showLike />
         ))}
       </div>
     </section>

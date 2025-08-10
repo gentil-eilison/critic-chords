@@ -10,6 +10,7 @@ export type Album = {
   genre: string;
   about: string;
   reviews_count: number;
+  overall_rating: number;
 };
 
 export type Genre = {

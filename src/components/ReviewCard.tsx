@@ -9,9 +9,10 @@ import { useUser } from "@auth0/nextjs-auth0";
 
 interface ReviewCardProps {
   review: Review;
+  showLike?: boolean;
 }
 
-export default function ReviewCard({ review }: ReviewCardProps) {
+export default function ReviewCard({ review, showLike }: ReviewCardProps) {
   const { user } = useUser();
 
   return (
@@ -20,14 +21,17 @@ export default function ReviewCard({ review }: ReviewCardProps) {
         <header className="flex justify-between items-center gap-3">
           <div className="flex gap-2">
             <Avatar className="w-12 h-12">
-              {/* <AvatarImage src={user.picture} /> */}
               <AvatarFallback className="bg-green-500 text-black">
                 {review.user.at(0)}
               </AvatarFallback>
             </Avatar>
             <div className="flex flex-col items-start">
               <p className="font-bold">@{review.user}</p>
-              <p className="text-gray-400">{review.days_since} days ago</p>
+              <p className="text-gray-400">
+                {review.days_since === 0
+                  ? "Today"
+                  : `${review.days_since} days ago`}
+              </p>
             </div>
           </div>
           <span className="flex items-center self-start gap-1">
@@ -37,10 +41,14 @@ export default function ReviewCard({ review }: ReviewCardProps) {
         </header>
       </CardHeader>
       <CardContent>
-        <p className="text-gray-300 text-justify">"{review.commentary}"</p>
+        <p className="text-gray-300 text-justify">
+          {review.commentary !== ""
+            ? `"${review.commentary}"`
+            : "No commentary"}
+        </p>
       </CardContent>
       <CardFooter className="flex items-center gap-3 text-sm text-gray-400">
-        {user && review.user === user.email ? (
+        {(user && review.user === user.email) || !showLike ? (
           <></>
         ) : (
           <>
