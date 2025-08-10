@@ -24,15 +24,13 @@ export default async function Header() {
           <Bell color={"var(--color-green-500)"} />
         </Button>
         <div className="flex flex-row items-center gap-4">
-          <Link href="/me">
-            <Avatar>
-              <AvatarImage src={session.user.picture} />
-              <AvatarFallback>
-                {session.user.given_name?.at(0)}
-                {session.user.family_name?.at(0)}
-              </AvatarFallback>
-            </Avatar>
-          </Link>
+          <Avatar>
+            <AvatarImage src={session.user.picture} />
+            <AvatarFallback>
+              {session.user.given_name?.at(0)}
+              {session.user.family_name?.at(0)}
+            </AvatarFallback>
+          </Avatar>
           <a href="/auth/logout" className="flex">
             <LogOut color={"var(--color-red-400)"} />
           </a>
