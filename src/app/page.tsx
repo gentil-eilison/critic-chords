@@ -1,5 +1,4 @@
 import { auth0 } from "@/lib/auth0";
-import FeaturedReviews from "./components/FeaturedReviews";
 import Features from "./components/Features";
 import HeroSection from "./components/HeroSection";
 import HomeHeader from "./components/HomeHeader";
@@ -25,7 +24,6 @@ export default async function Home() {
       <HeroSection />
       <Features />
       <HowItWorks />
-      <FeaturedReviews />
     </main>
   );
 }

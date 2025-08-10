@@ -1,15 +1,16 @@
 import FallbackImage from "@/components/FallbackImage";
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import { CardContent, CardFooter } from "@/components/ui/card";
 
 import { User } from "lucide-react";
 import ReadOnlyRating from "@/components/ReadOnlyRating";
 import { useAlbum } from "@/context/AlbumContext";
+import ContainerCard from "@/components/ContainerCard";
 
 export default function AlbumDetailCard() {
   const { album } = useAlbum();
 
   return (
-    <Card className="bg-gray-900/50 border-gray-800">
+    <ContainerCard variant="gray">
       <CardContent className="flex flex-col gap-3">
         <FallbackImage
           className="rounded mx-auto"
@@ -24,8 +25,8 @@ export default function AlbumDetailCard() {
           {album.artist}
         </p>
         <span className="flex items-center gap-3">
-          <ReadOnlyRating maxWidth={120} rating={4} />
-          <span className="font-bold">4.2</span>
+          <ReadOnlyRating maxWidth={120} rating={album.overall_rating} />
+          <span className="font-bold">{album.overall_rating}</span>
           <span className="text-gray-400">({album.reviews_count} reviews)</span>
         </span>
         <div className="text-sm">
@@ -51,6 +52,6 @@ export default function AlbumDetailCard() {
         <p className="font-bold">About</p>
         <p className="text-justify text-gray-300">{album.about}</p>
       </CardFooter>
-    </Card>
+    </ContainerCard>
   );
 }

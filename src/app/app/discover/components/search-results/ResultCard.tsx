@@ -5,6 +5,7 @@ import { Calendar, Plus, Star, User } from "lucide-react";
 
 import Link from "next/link";
 import { Album } from "@/types/Application";
+import ContainerCard from "@/components/ContainerCard";
 
 interface ResultCardProps {
   album: Album;
@@ -12,7 +13,10 @@ interface ResultCardProps {
 
 export default function ResultCard({ album }: ResultCardProps) {
   return (
-    <Card className="bg-gray-900/50 border-gray-800 hover:border-gray-700 transition-all duration-200 hover:scale-101">
+    <ContainerCard
+      variant="gray"
+      extraClasses="hover:border-gray-700 transition-all duration-200 hover:scale-101"
+    >
       <CardContent className="flex flex-col gap-1">
         <FallbackImage
           className="rounded mx-auto"
@@ -46,6 +50,6 @@ export default function ResultCard({ album }: ResultCardProps) {
           </PrimaryButton>
         </Link>
       </CardContent>
-    </Card>
+    </ContainerCard>
   );
 }

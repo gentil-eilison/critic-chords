@@ -29,7 +29,7 @@ export default function TrendingAlbumItem({ album }: TrendingAlbumItemProps) {
             size={16}
             color={"var(--color-green-500)"}
           />
-          0
+          {album.overall_rating}
         </p>
       </div>
     </li>
