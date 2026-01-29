@@ -1,3 +1,22 @@
+# Critic Chords 🎧️
+
+Critic Chords is a wep application to discuss and review music albums, sharing your insights among your peers. The application allows users to:
+
+1. Rate albums from 0 to 5 stars, leaving an optional comment
+2. Like other people's comments
+3. See a dashboard with trending albums
+
+# Tech Stack ⚒️
+* **Next.js**, for a fast and performant front-end SPA
+* **TailwindCSS**, for animations and full in-line CSS styling
+* **shadcn/ui**, to leverage the already established frequent web components
+* **AXIOS** & **TanStack Query**, for mananing client-side state, cache request responses, improve perfomrance and API code maintainability
+* **zod** and **React Hook Form**, for managing form states and validation
+* **Auth0** for authentication
+
+# App Screens ⚡️
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
