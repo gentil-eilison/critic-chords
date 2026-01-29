@@ -16,10 +16,20 @@ Critic Chords is a wep application to discuss and review music albums, sharing y
 
 # App Screens ⚡️
 
+## Homepage 🏠️
+<img width="1919" height="869" alt="image" src="https://github.com/user-attachments/assets/50392915-6eef-46f0-8c10-de8773dddcfc" />
+
+## Search for Albums 🔎
+<img width="1919" height="869" alt="image" src="https://github.com/user-attachments/assets/8b15f9c8-4936-423c-bf66-183cf877fb83" />
+
+## Rate Page ⭐️
+<img width="1919" height="869" alt="image" src="https://github.com/user-attachments/assets/31c7b3bf-ba72-4f89-a6b3-a08117deb880" />
+
+
+
+# How to Run
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-
-## Getting Started
 
 First, run the development server:
 
