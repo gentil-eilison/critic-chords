@@ -4,7 +4,7 @@ Critic Chords is a wep application to discuss and review music albums, sharing y
 
 1. Rate albums from 0 to 5 stars, leaving an optional comment
 2. Like other people's comments
-3. See a dashboard with trending albums
+3. See a dashboard with trending albums, latest reviews and user reivews statistics
 
 # Tech Stack ⚒️
 * **Next.js**, for a fast and performant front-end SPA
