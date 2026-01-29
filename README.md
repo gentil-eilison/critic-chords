@@ -10,7 +10,7 @@ Critic Chords is a wep application to discuss and review music albums, sharing y
 * **Next.js**, for a fast and performant front-end SPA
 * **TailwindCSS**, for animations and full in-line CSS styling
 * **shadcn/ui**, to leverage the already established frequent web components
-* **AXIOS** & **TanStack Query**, for mananing client-side state, cache request responses, improve perfomrance and API code maintainability
+* **AXIOS** & **TanStack Query**, for mananing client-side state through AXIOS singleton instance, cache request responses, improve performance and API code maintainability
 * **zod** and **React Hook Form**, for managing form states and validation
 * **Auth0** for authentication
 
